@@ -12,6 +12,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.set('port' , process.env.PORT || 3000);
 
+app.get("*", (req,res) => {
+	res.status(200).send({message: 'Welcome to DGC API'});
+})
+
 app.listen(app.get('port'), () => {
 	console.log('app running on port '+""+app.get('port'));
 });
